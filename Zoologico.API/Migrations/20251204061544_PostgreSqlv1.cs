@@ -6,13 +6,13 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Zoologico.API.Migrations
 {
     /// <inheritdoc />
-    public partial class V1Postgres : Migration
+    public partial class PostgreSqlv1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Especie",
+                name: "Especies",
                 columns: table => new
                 {
                     Codigo = table.Column<int>(type: "integer", nullable: false)
@@ -21,11 +21,11 @@ namespace Zoologico.API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Especie", x => x.Codigo);
+                    table.PrimaryKey("PK_Especies", x => x.Codigo);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Raza",
+                name: "Razas",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -34,11 +34,11 @@ namespace Zoologico.API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Raza", x => x.Id);
+                    table.PrimaryKey("PK_Razas", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Animal",
+                name: "Animales",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -51,27 +51,27 @@ namespace Zoologico.API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Animal", x => x.Id);
+                    table.PrimaryKey("PK_Animales", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Animal_Especie_EspecieCodigo",
+                        name: "FK_Animales_Especies_EspecieCodigo",
                         column: x => x.EspecieCodigo,
-                        principalTable: "Especie",
+                        principalTable: "Especies",
                         principalColumn: "Codigo");
                     table.ForeignKey(
-                        name: "FK_Animal_Raza_RazaId",
+                        name: "FK_Animales_Razas_RazaId",
                         column: x => x.RazaId,
-                        principalTable: "Raza",
+                        principalTable: "Razas",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Animal_EspecieCodigo",
-                table: "Animal",
+                name: "IX_Animales_EspecieCodigo",
+                table: "Animales",
                 column: "EspecieCodigo");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Animal_RazaId",
-                table: "Animal",
+                name: "IX_Animales_RazaId",
+                table: "Animales",
                 column: "RazaId");
         }
 
@@ -79,13 +79,13 @@ namespace Zoologico.API.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Animal");
+                name: "Animales");
 
             migrationBuilder.DropTable(
-                name: "Especie");
+                name: "Especies");
 
             migrationBuilder.DropTable(
-                name: "Raza");
+                name: "Razas");
         }
     }
 }

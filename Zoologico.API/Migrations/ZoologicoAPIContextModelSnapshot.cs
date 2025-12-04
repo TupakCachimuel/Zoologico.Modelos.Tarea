@@ -50,7 +50,7 @@ namespace Zoologico.API.Migrations
 
                     b.HasIndex("RazaId");
 
-                    b.ToTable("Animal");
+                    b.ToTable("Animales");
                 });
 
             modelBuilder.Entity("Zoologico.Modelos.Tarea.Especie", b =>
@@ -67,7 +67,7 @@ namespace Zoologico.API.Migrations
 
                     b.HasKey("Codigo");
 
-                    b.ToTable("Especie");
+                    b.ToTable("Especies");
                 });
 
             modelBuilder.Entity("Zoologico.Modelos.Tarea.Raza", b =>
@@ -83,7 +83,7 @@ namespace Zoologico.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Raza");
+                    b.ToTable("Razas");
                 });
 
             modelBuilder.Entity("Zoologico.Modelos.Tarea.Animal", b =>
