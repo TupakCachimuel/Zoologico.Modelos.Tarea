@@ -11,11 +11,11 @@ namespace Zoologico.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RazassController : ControllerBase
+    public class RazasController : ControllerBase
     {
         private readonly ZoologicoAPIContext _context;
 
-        public RazassController(ZoologicoAPIContext context)
+        public RazasController(ZoologicoAPIContext context)
         {
             _context = context;
         }
