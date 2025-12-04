@@ -20,14 +20,14 @@ namespace Zoologico.API.Controllers
             _context = context;
         }
 
-        // GET: api/Razass
+        // GET: api/Razas
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Raza>>> GetRaza()
         {
             return await _context.Razas.ToListAsync();
         }
 
-        // GET: api/Razass/5
+        // GET: api/Razas/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Raza>> GetRaza(int id)
         {
@@ -44,7 +44,7 @@ namespace Zoologico.API.Controllers
             return raza;
         }
 
-        // PUT: api/Razass/5
+        // PUT: api/Razas/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRaza(int id, Raza raza)
@@ -75,7 +75,7 @@ namespace Zoologico.API.Controllers
             return NoContent();
         }
 
-        // POST: api/Razass
+        // POST: api/Razas
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Raza>> PostRaza(Raza raza)
@@ -86,7 +86,7 @@ namespace Zoologico.API.Controllers
             return CreatedAtAction("GetRaza", new { id = raza.Id }, raza);
         }
 
-        // DELETE: api/Razass/5
+        // DELETE: api/Razas/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRaza(int id)
         {
